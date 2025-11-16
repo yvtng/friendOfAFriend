@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Friend-of-a-Friend Analyzer</title>
+
+  <!-- Load your external CSS file -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Basic layout styles only — visual styles come from external CSS */
+
+    body {
+      background-image: linear-gradient(to bottom right, #b3d4fc, royalblue);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .center-box {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    /* NEW: Centering person cards container */
+    #people-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+
+      width: 100%;
+      max-width: 1200px;
+
+      margin-top: 40px;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🐧 Friend of a Friend 🐧</h1>
+
+<div class="center-box">
+  <div class="input-row">
+    <input id="session" class="session-input" type="text" placeholder="Enter Instagram handle...">
+    <button id="runBtn" class="run-btn">Connect</button>
+  </div>
+</div>
+
+<!-- This is where person cards will appear -->
+<div id="people-container"></div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
