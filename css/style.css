@@ -1,0 +1,126 @@
+/* =======================
+   Friend-of-a-Friend UI
+   ======================= */
+
+/* Page background */
+body {
+  background-image: linear-gradient(to bottom right, #b3d4fc, royalblue);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input + Button same line and centered */
+.input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.session-input {
+  width: 240px;                 /* horizontally bigger */
+  padding: 18px 20px;           /* taller + thicker */
+  font-size: 20px;              /* larger text */
+  border-radius: 22px;          /* bubble shape */
+
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
+  color: #fff;
+  outline: none;
+}
+
+.session-input::placeholder {
+  color: #eee;
+  opacity: 0.8;
+}
+
+.session-input:focus {
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+
+
+/* Frosted glass RUN BUTTON — big bubble style */
+.run-btn {
+  padding: 18px 32px;          /* bigger bubble button */
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
+  color: white;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.run-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
+}
+
+.run-btn:active {
+  transform: scale(0.97);
+}
+
+/* Person cards */
+.person-card {
+  background: rgba(255,255,255,0.12);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 12px;
+  width: 320px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.person-card:hover {
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.02);
+}
+
+/* Collapsible details */
+.person-card-details {
+  display: none;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.person-card-details p {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 6px 0;
+}
+
+/* Links inside cards */
+.person-card a {
+  color: #ffd;
+  text-decoration: underline;
+}
+/* Center person cards in a grid */
+#people-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* THIS centers them */
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
