@@ -68,7 +68,7 @@ function renderPeople(people) {
     card.innerHTML = `
       <h3>${person.name}</h3>
       <p>@${person.username}</p>
-      <div class="person-card-details" style="display:none;">
+      <div class="person-card-details">
         <p><strong>Profile:</strong> <a href="${person.profile_link}" target="_blank">${person.profile_link}</a></p>
         <p><strong>Referrers:</strong> ${person.referrers.join(", ")}</p>
       </div>
@@ -87,38 +87,21 @@ function renderPeople(people) {
 
 
 /* -----------------------------
-   Sleep helper
------------------------------ */
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
-/* -----------------------------
    Fetch + assign to cards
 ----------------------------- */
-document.getElementById("runBtn").addEventListener("click", async () => {
+document.getElementById("runBtn").addEventListener("click", () => {
   const username = document.getElementById("session").value.trim();
-  const loading = document.getElementById("loading");
 
   if (!username) {
     alert("Please enter a handle!");
     return;
   }
 
-  // Show spinner
-  loading.style.display = "block";
-
-  // Optional: smoother UX delay
-  await sleep(400);
-
   const url = "https://shmokey.pythonanywhere.com/get_picks/" + username;
 
   fetch(url)
     .then(res => res.text())
-    .then(async text => {
-      await sleep(400); // delay to keep spinner visible
-
+    .then(text => {
       if (text.includes("Internal Server Error")) {
         alert("Server error — check backend logs.");
         return;
@@ -130,8 +113,5 @@ document.getElementById("runBtn").addEventListener("click", async () => {
     .catch(err => {
       console.error(err);
       alert("Error fetching data.");
-    })
-    .finally(() => {
-      loading.style.display = "none"; // Hide spinner
     });
 });
